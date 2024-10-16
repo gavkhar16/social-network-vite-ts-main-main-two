@@ -1,6 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const SButton = styled.button`
+interface StyledButtonProps {
+  isPrimary?: boolean;
+}
+
+export const SButton = styled.button<StyledButtonProps>`
   width: 100%;
   margin-bottom: 30px;
   cursor: pointer;
@@ -15,14 +19,16 @@ export const SButton = styled.button`
     background-color: ${(props) => props.theme.colors.disabledBgc};
   }
 
-  &.primary {
-    background-color: var(--prime-color);
-    color: white;
-  }
-
-  &.secondary {
-    background-color: ${(props) => props.theme.colors.textColor};
-    color: ${(props) => props.theme.colors.placeholderColor};
+  ${(props) => 
+    props.isPrimary 
+      ? css`
+          background-color: ${(props) => props.theme.colors.primeColor};
+          color: white;
+        `
+      : css`
+          background-color: ${(props) => props.theme.colors.lightGray};
+          color: ${(props) => props.theme.colors.placeholderColor};
+        `
   }
 
   &:disabled:hover {

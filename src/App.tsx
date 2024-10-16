@@ -3,6 +3,7 @@ import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { MainPage } from "./pages/MainPage/MainPage";
 import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { WrongPassword } from "./pages/WrongPassword/WrongPassword";
 
 function App() {
 
@@ -10,6 +11,10 @@ function App() {
     {
       path:"/",
       element:<LoginPage/>
+    },
+    {
+      path:"/wrong-password",
+      element:<WrongPassword/>
     },
     {
       path:"/main-page",

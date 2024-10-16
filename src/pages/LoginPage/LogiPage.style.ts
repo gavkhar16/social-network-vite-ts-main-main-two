@@ -1,4 +1,7 @@
-.LoginPage {
+import styled from "styled-components";
+
+
+export const StyleLoginPage = styled.div`
   box-shadow: 0 0 10px var(--light-gray);
   border-radius: 20px;
   background-color: var(--elems-bgc);
@@ -75,4 +78,5 @@
     height: 100%;
     object-fit: cover;
   }
-}
+
+`
