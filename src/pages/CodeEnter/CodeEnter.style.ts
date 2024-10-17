@@ -11,21 +11,43 @@ export const StyleCodeEnter = styled.div`
   padding: 40px;
 
   h1 {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
-  from {
+
+  .timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: ${(props) => props.theme.colors.gray};
+    margin: 20px 0;
+  }
+
+  form {
     display: flex;
-    flex-direction: row;
-    gap: 32px;
-    &:input{
-       width: 56px;
-       height: 72px;
-       background-color: #C1C6D3;
-       border: none;
-       border-radius: 8px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    input {
+      width: 56px;
+      height: 73px;
+      text-align: center;
+      font-size: 24px;
+      border: 1px solid ${(props) => props.theme.colors.lightGray};
+      border-radius: 8px;
+      background-color: ${(props) => props.theme.colors.lightGray};
     }
-    .Linktext{
-        color: ${props=>props.theme.colors.primeColor};
+  }
+
+  p {
+    margin-top: 20px;
+    color: ${(props) => props.theme.colors.gray};
+
+    a {
+      color: ${(props) => props.theme.colors.primeColor};
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 `;
