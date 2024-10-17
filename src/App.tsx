@@ -4,7 +4,7 @@ import { MainPage } from "./pages/MainPage/MainPage";
 import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WrongPassword } from "./pages/WrongPassword/WrongPassword";
-
+import { CodeEnter } from "./pages/CodeEnter/CodeEnter";
 function App() {
 
   const router = createBrowserRouter([
@@ -15,6 +15,10 @@ function App() {
     {
       path:"/wrong-password",
       element:<WrongPassword/>
+    },
+    {
+      path:"/code-enter",
+      element:<CodeEnter/>
     },
     {
       path:"/main-page",

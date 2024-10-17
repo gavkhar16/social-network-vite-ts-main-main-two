@@ -48,4 +48,5 @@ export const SButton = styled.button<StyledButtonProps>`
   @media (max-width: 730px) {
     padding: 10px 12px;
   }
+  
 `;
