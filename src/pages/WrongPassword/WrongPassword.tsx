@@ -1,7 +1,7 @@
 import "./WrongPassword.scss";
 import { Heading } from "../../components/UI/Header/Typography/Heading";
 import { Button } from "../../components/UI/UI/Button/Button";
-import { Container } from "../../components/UI/UI/Button/Container/container.style";
+import { Container } from "../../components/UI/UI/Container/container.style";
 import { Input } from "../../components/UI/UI/Input/InputWord";
 
 export const WrongPassword = () => {

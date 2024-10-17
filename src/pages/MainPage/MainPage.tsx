@@ -1,9 +1,10 @@
 import { Header } from "../../components/UI/Header/Header";
+import { Container } from "../../components/UI/UI/Container/container.style";
 import "./MainPage.scss";
 
 export const MainPage = () => {
   return (
-    <div className="container">
+    <Container>
       <Header/>
       <div className="MainPage">
       <aside className="LeftSide">
@@ -723,6 +724,6 @@ export const MainPage = () => {
         </div>
       </aside>
     </div>
-    </div>
+    </Container>
   );
 };

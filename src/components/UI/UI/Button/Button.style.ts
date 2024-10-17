@@ -19,8 +19,8 @@ export const SButton = styled.button<StyledButtonProps>`
     background-color: ${(props) => props.theme.colors.disabledBgc};
   }
 
-  ${(props) => 
-    props.isPrimary 
+  ${(props) =>
+    props.isPrimary
       ? css`
           background-color: ${(props) => props.theme.colors.primeColor};
           color: white;
@@ -28,8 +28,7 @@ export const SButton = styled.button<StyledButtonProps>`
       : css`
           background-color: ${(props) => props.theme.colors.lightGray};
           color: ${(props) => props.theme.colors.placeholderColor};
-        `
-  }
+        `}
 
   &:disabled:hover {
     cursor: default;
@@ -45,5 +44,8 @@ export const SButton = styled.button<StyledButtonProps>`
     transition: 100ms;
     translate: 0 0;
     box-shadow: none;
+  }
+  @media (max-width: 730px) {
+    padding: 10px 12px;
   }
 `;

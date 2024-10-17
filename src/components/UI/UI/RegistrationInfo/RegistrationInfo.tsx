@@ -1,4 +1,4 @@
-import { StyleRegistrationInfo } from "./RegistrationInfo.style";
+ import { StyleRegistrationInfo } from "./RegistrationInfo.style";
 
 export const RegistrationInfo = () => {
   return (
