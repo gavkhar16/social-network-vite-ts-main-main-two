@@ -38,7 +38,7 @@ export const StyleCodeEnter = styled.div`
   }
 
   p {
-    margin-top: 20px;
+    font-size: 20px;
     color: ${(props) => props.theme.colors.gray};
 
     a {
