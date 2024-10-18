@@ -25,9 +25,9 @@ export const CodeEnter = () => {
     newInputValues[index] = value;
     setInputValues(newInputValues);
 
-    // Проверка, заполнены ли все поля и содержат ли они цифры
+   
     if (newInputValues.every((val) => val.trim() !== "")) {
-      navigate("/main-page"); // Переход на другую страницу
+      navigate("/main-page"); 
     }
   };
 

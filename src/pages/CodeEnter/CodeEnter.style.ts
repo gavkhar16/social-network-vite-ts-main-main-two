@@ -25,10 +25,6 @@ export const StyleCodeEnter = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    justify-content: space-between;
-    width: 320px;
-    height: 139px;
-
 
     input {
       width: 56px;
