@@ -25,9 +25,18 @@ export const StyleWrongPassword = styled.div`
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #c1c6d3;
+    border: 1px solid ${props=>props.theme.colors.disabledBgc}; /* Установка цвета по умолчанию */
     border-radius: 10px;
-  }
+    cursor: pointer;
+    transition: border-color 0.3s ease;
 
-  
+    &:hover {
+      border-color: ${props=>props.theme.colors.primeColor}; /* Цвет при наведении */
+    }
+
+    &:focus {
+      border-color: ${props=>props.theme.colors.primeColor}; /* Цвет при фокусе (вводе текста) */
+      outline: none; /* Убираем стандартное выделение */
+    }
+  }
 `;
