@@ -1,18 +1,22 @@
-// Linktext.tsx
-import React from "react";
-
 interface TLinkText {
-  text: string;
-  onClick: () => void; // Добавляем onClick
+  regularText?: string;
+  linkText: string;
+  onLinkClick?: () => void;
 }
 
-export const Linktext = ({ text, onClick }: TLinkText) => {
+export const Linktext = ({ regularText, linkText, onLinkClick }: TLinkText) => {
   return (
-    <a
-      onClick={onClick} // Обработчик события клика
-      style={{ cursor: "pointer", color: "blue", textDecoration: "underline" }} // Стилизация
-    >
-      {text}
-    </a>
+    <span>
+      {regularText}{" "}
+      <a
+        onClick={onLinkClick}
+        style={{
+          cursor: "pointer",
+          color: "blue",
+        }}
+      >
+        {linkText}
+      </a>
+    </span>
   );
 };

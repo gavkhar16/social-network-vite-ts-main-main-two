@@ -1,12 +1,16 @@
- import { StyleRegistrationInfo } from "./RegistrationInfo.style";
+import { StyleRegistrationInfo } from "./RegistrationInfo.style";
 
-export const RegistrationInfo = () => {
+interface RegistrationInfoProps {
+  Infotext: string; 
+}
+
+export const RegistrationInfo = ({ Infotext }: RegistrationInfoProps) => {
   return (
     <StyleRegistrationInfo>
       <span>
         У вас нет аккаунта? <a href="#">Зарегистрироваться</a>
       </span>
-      <p>Войти с помощью</p>
+      <p>{Infotext}</p> 
       <div className="icons-wrapper">
         <a className="reg__link google-link" href="#">
           <img src="./img/icons/google.svg" alt="Google" />

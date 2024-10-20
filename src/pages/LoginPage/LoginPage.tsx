@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"; 
 import { Heading } from "../../components/UI/Header/Typography/Heading";
 import * as yup from "yup";
 import { Linktext } from "../../components/UI/Header/Typography/Linktext";
@@ -9,7 +10,6 @@ import "./LoginPage.scss";
 import { StyleLoginPage } from "./LogiPage.style";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useNavigate } from "react-router-dom";
 
 interface ILoginForm {
   userEmail: string;
@@ -28,7 +28,8 @@ const loginFormScheme = yup.object({
 });
 
 export const LoginPage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
+
   const {
     control,
     handleSubmit,
@@ -43,10 +44,6 @@ export const LoginPage = () => {
 
   const onLoginSubmit: SubmitHandler<ILoginForm> = (data) => {
     console.log(data);
-  };
-
-  const handleForgotPasswordClick = () => {
-    navigate("/wrong-password");
   };
 
   return (
@@ -82,8 +79,11 @@ export const LoginPage = () => {
           />
           <Button isPrimary buttonText="Войти" />
         </form>
-        <Linktext text="Забыли пароль?" onClick={handleForgotPasswordClick} />
-        <RegistrationInfo />
+        <Linktext
+          linkText="Забыли пароль?"
+          onLinkClick={() => navigate("/wrong-password")} 
+        />
+        <RegistrationInfo  Infotext="Войти с помощью"/>
       </StyleLoginPage>
     </Container>
   );

@@ -13,7 +13,10 @@ export const CodeEnter = () => {
 
   useEffect(() => {
     if (timer > 0) {
-      const intervalId = setInterval(() => setTimer((prevTimer) => prevTimer - 1), 1000);
+      const intervalId = setInterval(
+        () => setTimer((prevTimer) => prevTimer - 1),
+        1000
+      );
       return () => clearInterval(intervalId);
     }
   }, [timer]);
@@ -25,9 +28,8 @@ export const CodeEnter = () => {
     newInputValues[index] = value;
     setInputValues(newInputValues);
 
-   
     if (newInputValues.every((val) => val.trim() !== "")) {
-      navigate("/password-page"); 
+      navigate("/password-page");
     }
   };
 
@@ -35,7 +37,10 @@ export const CodeEnter = () => {
     <Container>
       <StyleCodeEnter>
         <Heading headingText="Введите код" />
-        <p>Пожалуйста, введите код из SMS, который был отправлен на ваш номер телефона</p>
+        <p>
+          Пожалуйста, введите код из SMS, который был отправлен на ваш номер
+          телефона
+        </p>
         <div className="timer">{formattedTime}</div>
         <form>
           {inputValues.map((value, index) => (
@@ -48,9 +53,10 @@ export const CodeEnter = () => {
             />
           ))}
         </form>
-        <p>
-          Код не пришел? <Linktext text="Отправить повторно" />
-        </p>
+        <Linktext
+          regularText="Код не пришел?"
+          linkText="Отправить повторно"
+        />
       </StyleCodeEnter>
     </Container>
   );
