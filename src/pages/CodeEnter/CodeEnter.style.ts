@@ -30,7 +30,8 @@ export const StyleCodeEnter = styled.div`
       width: 56px;
       height: 73px;
       text-align: center;
-      font-size: 24px;
+      font-size: 40px;
+      font-weight: 500;
       border: 1px solid ${(props) => props.theme.colors.lightGray};
       border-radius: 8px;
       background-color: ${(props) => props.theme.colors.lightGray};

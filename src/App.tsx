@@ -5,11 +5,12 @@ import { ProfilePage } from "./pages/ProfilePage/ProfilePage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WrongPassword } from "./pages/WrongPassword/WrongPassword";
 import { CodeEnter } from "./pages/CodeEnter/CodeEnter";
+import { PasswordPage } from "./pages/PasswordPage/PasswordPage";
 function App() {
 
   const router = createBrowserRouter([
     {
-      path:"/",
+      path:"/login-page",
       element:<LoginPage/>
     },
     {
@@ -19,6 +20,10 @@ function App() {
     {
       path:"/code-enter",
       element:<CodeEnter/>
+    },
+    {
+      path:"/password-page",
+      element:<PasswordPage/>
     },
     {
       path:"/main-page",

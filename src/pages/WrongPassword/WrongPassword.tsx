@@ -17,7 +17,7 @@ export const WrongPassword = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (phoneNumber) {
-      navigate("/next-page");
+      navigate("/code-enter");
     }
   };
 

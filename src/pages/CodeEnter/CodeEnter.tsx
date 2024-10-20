@@ -27,7 +27,7 @@ export const CodeEnter = () => {
 
    
     if (newInputValues.every((val) => val.trim() !== "")) {
-      navigate("/main-page"); 
+      navigate("/password-page"); 
     }
   };
 
