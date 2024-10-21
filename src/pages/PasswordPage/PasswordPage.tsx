@@ -9,19 +9,19 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 interface IPasswordForm {
-  newPassword: string;
+  userPassword: string;
   confirmPassword: string;
 }
 
 const passwordSchema = yup.object({
-  newPassword: yup
+  userPassword: yup
     .string()
     .required("Обязательное поле")
-    .min(5, "Пароль должен содержать не менее 5 символов"),
+    .min(4, "Пароль должен содержать не менее 4 символов"),
   confirmPassword: yup
     .string()
     .required("Обязательное поле")
-    .oneOf([yup.ref('newPassword')], "Пароли не совпадают"),
+    .oneOf([yup.ref('userPassword')], "Пароли не совпадают"),
 });
 
 export const PasswordPage = () => {
@@ -34,14 +34,14 @@ export const PasswordPage = () => {
   } = useForm<IPasswordForm>({
     resolver: yupResolver(passwordSchema),
     defaultValues: {
-      newPassword: "",
+      userPassword: "",
       confirmPassword: "",
     },
   });
 
   const onPasswordSubmit: SubmitHandler<IPasswordForm> = (data) => {
-    console.log(data); // Вывод данных формы в консоль
-    navigate("/login-page");
+    console.log(data); 
+    navigate("/");
   };
 
   return (
@@ -55,14 +55,14 @@ export const PasswordPage = () => {
         </p>
         <form onSubmit={handleSubmit(onPasswordSubmit)}>
           <Controller
-            name="newPassword"
+            name="userPassword"
             control={control}
             render={({ field }) => (
               <Input
                 type="password"
                 placeholder="Новый пароль"
-                errorText={errors.newPassword?.message}
-                isError={!!errors.newPassword}
+                errorText={errors.userPassword?.message}
+                isError={!!errors.userPassword}
                 {...field}
               />
             )}

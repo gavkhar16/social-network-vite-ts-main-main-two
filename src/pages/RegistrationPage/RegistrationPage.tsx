@@ -11,13 +11,16 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 interface IRegistrationForm {
-  userName: string;
+  userEmail: string;
   userPhone: string;
   userPassword: string;
 }
 
 const registrationFormSchema = yup.object({
-  userName: yup.string().required("Обязательное поле"),
+  userEmail: yup
+    .string()
+    .required("Обязательное поле")
+    .email("Некорректный формат электронной почты"),
   userPhone: yup
     .string()
     .required("Обязательное поле")
@@ -38,15 +41,20 @@ export const RegistrationPage = () => {
   } = useForm<IRegistrationForm>({
     resolver: yupResolver(registrationFormSchema),
     defaultValues: {
-      userName: "",
+      userEmail: "",
       userPhone: "",
       userPassword: "",
     },
   });
 
   const onRegisterSubmit: SubmitHandler<IRegistrationForm> = (data) => {
-    console.log(data);
-    navigate("/");
+    // Сохраняем данные пользователя в localStorage
+    localStorage.setItem("userEmail", data.userEmail);
+    localStorage.setItem("userPhone", data.userPhone);
+    localStorage.setItem("userPassword", data.userPassword);
+
+    console.log("Регистрация завершена:", data);
+    navigate("/password-page"); // Перенаправление на страницу /password-page
   };
 
   return (
@@ -55,14 +63,14 @@ export const RegistrationPage = () => {
         <Heading headingText="Регистрация" />
         <form onSubmit={handleSubmit(onRegisterSubmit)}>
           <Controller
-            name="userName"
+            name="userEmail"
             control={control}
             render={({ field }) => (
               <Input
                 type="text"
-                placeholder="Имя и Фамилия"
-                errorText={errors.userName?.message}
-                isError={!!errors.userName}
+                placeholder="Электронная почта"
+                errorText={errors.userEmail?.message}
+                isError={!!errors.userEmail}
                 {...field}
               />
             )}
@@ -98,7 +106,7 @@ export const RegistrationPage = () => {
         <Linktext
           regularText="Уже есть аккаунт?"
           linkText="Войти"
-          onLinkClick={() => navigate("/login")}
+          onLinkClick={() => navigate("/")}
         />
         <RegistrationInfo Infotext="Регистрация с помощью:" />
       </StyleRegistrationPage>

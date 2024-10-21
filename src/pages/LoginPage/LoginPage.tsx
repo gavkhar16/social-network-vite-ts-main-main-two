@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { Heading } from "../../components/UI/Header/Heading";
 import * as yup from "yup";
 import { Linktext } from "../../components/UI/Header/Typography/LinkText/Linktext";
@@ -28,7 +28,7 @@ const loginFormScheme = yup.object({
 });
 
 export const LoginPage = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const {
     control,
@@ -43,12 +43,18 @@ export const LoginPage = () => {
   });
 
   const onLoginSubmit: SubmitHandler<ILoginForm> = (data) => {
-    console.log(data);
-  };
+    // Получаем сохраненные данные из localStorage
+    const savedEmail = localStorage.getItem("userEmail");
+    const savedPassword = localStorage.getItem("userPassword");
 
-  const onLoginSubmit: SubmitHandler<ILoginForm> = (data) => {
-    console.log(data);
-    navigate("/main-page"); // Перенаправление на главную страницу после успешного входа
+    // Проверяем, совпадают ли введенные данные с данными из localStorage
+    if (data.userEmail === savedEmail && data.userPassword === savedPassword) {
+      console.log("Успешный вход");
+      navigate("/main-page"); // Перенаправление на главную страницу
+    } else {
+      console.log("Неправильный email или пароль");
+      alert("Неправильный email или пароль"); // Сообщение об ошибке
+    }
   };
 
   return (
@@ -86,9 +92,14 @@ export const LoginPage = () => {
         </form>
         <Linktext
           linkText="Забыли пароль?"
-          onLinkClick={() => navigate("/wrong-password")} 
+          onLinkClick={() => navigate("/wrong-password")}
         />
-        <RegistrationInfo registrationText="У вас нет аккаунта?" linkText="Зарегистрироваться" onLinkClick={() => navigate("/registration-page")} Infotext="Войти с помощью"/>
+        <RegistrationInfo
+          registrationText="У вас нет аккаунта?"
+          linkText="Зарегистрироваться"
+          onLinkClick={() => navigate("/registration-page")}
+          Infotext="Войти с помощью"
+        />
       </StyleLoginPage>
     </Container>
   );
