@@ -43,17 +43,16 @@ export const LoginPage = () => {
   });
 
   const onLoginSubmit: SubmitHandler<ILoginForm> = (data) => {
-    // Получаем сохраненные данные из localStorage
+    
     const savedEmail = localStorage.getItem("userEmail");
     const savedPassword = localStorage.getItem("userPassword");
 
-    // Проверяем, совпадают ли введенные данные с данными из localStorage
     if (data.userEmail === savedEmail && data.userPassword === savedPassword) {
       console.log("Успешный вход");
-      navigate("/main-page"); // Перенаправление на главную страницу
+      navigate("/main-page"); 
     } else {
       console.log("Неправильный email или пароль");
-      alert("Неправильный email или пароль"); // Сообщение об ошибке
+      alert("Неправильный email или пароль"); 
     }
   };
 

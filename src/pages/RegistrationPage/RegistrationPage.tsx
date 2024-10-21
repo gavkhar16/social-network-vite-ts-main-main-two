@@ -16,7 +16,7 @@ interface IRegistrationForm {
   userPassword: string;
 }
 
-// Схема валидации для формы регистрации
+
 const registrationFormSchema = yup.object({
   userEmail: yup.string().required("Обязательное поле"),
   userPhone: yup
@@ -46,14 +46,14 @@ export const RegistrationPage = () => {
   });
 
   const onRegisterSubmit: SubmitHandler<IRegistrationForm> = (data) => {
-    // Создаем массив с данными пользователя
+    
     const userData = [data.userEmail, data.userPhone, data.userPassword];
 
-    // Сохраняем массив данных пользователя в localStorage
+    
     localStorage.setItem("userData", JSON.stringify(userData));
 
     console.log("Регистрация завершена:", data);
-    navigate("/password-page"); // Перенаправление на другую страницу
+    navigate("/password-page");
   };
 
   return (
