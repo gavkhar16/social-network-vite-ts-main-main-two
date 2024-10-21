@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import { Heading } from "../../components/UI/Header/Heading";
 import * as yup from "yup";
 import { Linktext } from "../../components/UI/Header/Typography/LinkText/Linktext";
@@ -16,11 +16,9 @@ interface IRegistrationForm {
   userPassword: string;
 }
 
+// Схема валидации для формы регистрации
 const registrationFormSchema = yup.object({
-  userEmail: yup
-    .string()
-    .required("Обязательное поле")
-    .email("Некорректный формат электронной почты"),
+  userEmail: yup.string().required("Обязательное поле"),
   userPhone: yup
     .string()
     .required("Обязательное поле")
@@ -48,13 +46,14 @@ export const RegistrationPage = () => {
   });
 
   const onRegisterSubmit: SubmitHandler<IRegistrationForm> = (data) => {
-    // Сохраняем данные пользователя в localStorage
-    localStorage.setItem("userEmail", data.userEmail);
-    localStorage.setItem("userPhone", data.userPhone);
-    localStorage.setItem("userPassword", data.userPassword);
+    // Создаем массив с данными пользователя
+    const userData = [data.userEmail, data.userPhone, data.userPassword];
+
+    // Сохраняем массив данных пользователя в localStorage
+    localStorage.setItem("userData", JSON.stringify(userData));
 
     console.log("Регистрация завершена:", data);
-    navigate("/password-page"); // Перенаправление на страницу /password-page
+    navigate("/password-page"); // Перенаправление на другую страницу
   };
 
   return (
