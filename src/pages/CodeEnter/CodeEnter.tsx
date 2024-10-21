@@ -1,5 +1,5 @@
-import { Heading } from "../../components/UI/Header/Typography/Heading";
-import { Linktext } from "../../components/UI/Header/Typography/Linktext";
+import { Heading } from "../../components/UI/Header/Heading";
+import { Linktext } from "../../components/UI/Header/Typography/LinkText/Linktext";
 import { Container } from "../../components/UI/UI/Container/container.style";
 import { Input } from "../../components/UI/UI/Input/InputWord";
 import { StyleCodeEnter } from "./CodeEnter.style";

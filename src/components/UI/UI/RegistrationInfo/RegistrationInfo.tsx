@@ -1,16 +1,24 @@
 import { StyleRegistrationInfo } from "./RegistrationInfo.style";
 
 interface RegistrationInfoProps {
-  Infotext: string; 
+  Infotext?: string;
+  registrationText?: string;
+  linkText?: string;
+  onLinkClick?: () => void;
 }
 
-export const RegistrationInfo = ({ Infotext }: RegistrationInfoProps) => {
+export const RegistrationInfo = ({
+  Infotext,
+  registrationText,
+  onLinkClick,
+  linkText,
+}: RegistrationInfoProps) => {
   return (
     <StyleRegistrationInfo>
       <span>
-        У вас нет аккаунта? <a href="#">Зарегистрироваться</a>
+        {registrationText} <a onClick={onLinkClick}>{linkText}</a>
       </span>
-      <p>{Infotext}</p> 
+      <p>{Infotext}</p>
       <div className="icons-wrapper">
         <a className="reg__link google-link" href="#">
           <img src="./img/icons/google.svg" alt="Google" />

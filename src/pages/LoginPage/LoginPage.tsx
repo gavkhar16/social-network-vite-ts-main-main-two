@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"; 
-import { Heading } from "../../components/UI/Header/Typography/Heading";
+import { Heading } from "../../components/UI/Header/Heading";
 import * as yup from "yup";
-import { Linktext } from "../../components/UI/Header/Typography/Linktext";
+import { Linktext } from "../../components/UI/Header/Typography/LinkText/Linktext";
 import { Button } from "../../components/UI/UI/Button/Button";
 import { Container } from "../../components/UI/UI/Container/container.style";
 import { RegistrationInfo } from "../../components/UI/UI/RegistrationInfo/RegistrationInfo";
@@ -46,6 +46,11 @@ export const LoginPage = () => {
     console.log(data);
   };
 
+  const onLoginSubmit: SubmitHandler<ILoginForm> = (data) => {
+    console.log(data);
+    navigate("/main-page"); // Перенаправление на главную страницу после успешного входа
+  };
+
   return (
     <Container>
       <StyleLoginPage>
@@ -83,7 +88,7 @@ export const LoginPage = () => {
           linkText="Забыли пароль?"
           onLinkClick={() => navigate("/wrong-password")} 
         />
-        <RegistrationInfo  Infotext="Войти с помощью"/>
+        <RegistrationInfo registrationText="У вас нет аккаунта?" linkText="Зарегистрироваться" onLinkClick={() => navigate("/registration-page")} Infotext="Войти с помощью"/>
       </StyleLoginPage>
     </Container>
   );

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Heading } from "../../components/UI/Header/Typography/Heading";
+import { Heading } from "../../components/UI/Header/Heading";
 import { Button } from "../../components/UI/UI/Button/Button";
 import { Container } from "../../components/UI/UI/Container/container.style";
 import { Input } from "../../components/UI/UI/Input/InputWord";
