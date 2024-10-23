@@ -1,5 +1,7 @@
 import { Header } from "../../components/UI/Header/Header";
+import { Linktext } from "../../components/UI/Header/Typography/LinkText/Linktext";
 import { Container } from "../../components/UI/UI/Container/container.style";
+import { Input } from "../../components/UI/UI/Input/InputWord";
 import "./MainPage.scss";
 
 export const MainPage = () => {
@@ -240,7 +242,7 @@ export const MainPage = () => {
       <main className="Main">
         <div className="WhatsNew">
           <img src="./img/users/arina-volkova.jpeg" alt="User" />
-          <input
+          <Input
             type="text"
             name="whats-new"
             id="whats-new"
@@ -486,9 +488,7 @@ export const MainPage = () => {
                 Карина Савина
               </a>
               <p className="comment__text">Это текст комментария...</p>
-              <a href="#" className="reply">
-                Ответить
-              </a>
+              <Linktext linkText="Ответить"/>
             </div>
             <span className="date">25 марта</span>
             <svg
@@ -608,9 +608,7 @@ export const MainPage = () => {
                 Карина Савина
               </a>
               <p className="comment__text">Это текст комментария...</p>
-              <a href="#" className="reply">
-                Ответить
-              </a>
+              <Linktext linkText="Ответить"/>
             </div>
             <span className="date">25 марта</span>
             <svg

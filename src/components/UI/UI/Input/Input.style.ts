@@ -42,4 +42,10 @@ export const StyleInput = styled.input<SInterFaceProps>`
   @media (max-width: 730px) {
     padding: 10px 12px;
   }
+  flex: 1 1 auto;
+  background: transparent;
+  
+  @media (max-width: 730px) {
+    padding: 10px 15px;
+  }
 `;
